@@ -31,11 +31,18 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="c-nickname" class="control-label col-xs-12 col-sm-2">{:__('Nickname')}:</label>
+        <label for="c-zh_name" class="control-label col-xs-12 col-sm-2">{:__('中文名')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-nickname" data-rule="required" class="form-control" name="row[nickname]" type="text" value="{$row.nickname|htmlentities}">
+            <input id="c-zh_name" class="form-control" name="row[zh_name]" type="text" value="{$row.zh_name|htmlentities}">
         </div>
     </div>
+    <div class="form-group">
+        <label for="c-en_name" class="control-label col-xs-12 col-sm-2">{:__('英文名')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-en_name" class="form-control" name="row[en_name]" type="text" value="{$row.en_name|htmlentities}">
+        </div>
+    </div>
+
     <div class="form-group">
         <label for="c-flag" class="control-label col-xs-12 col-sm-2">{:__('Flag')}:</label>
         <div class="col-xs-12 col-sm-8">
@@ -63,9 +70,27 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="c-keywords" class="control-label col-xs-12 col-sm-2">{:__('Keywords')}:</label>
+        <label for="c-cas" class="control-label col-xs-12 col-sm-2">{:__('CAS号')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-keywords" class="form-control" name="row[keywords]" type="text" value="{$row.keywords|htmlentities}">
+            <input id="c-cas" class="form-control" name="row[cas]" type="text" value="{$row.cas}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-formula" class="control-label col-xs-12 col-sm-2">{:__('分子式')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-formula" class="form-control" name="row[formula]" type="text" value="{$row.formula}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-molecular" class="control-label col-xs-12 col-sm-2">{:__('分子量')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-molecular" class="form-control" name="row[molecular]" type="text" value="{$row.molecular}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-mdl" class="control-label col-xs-12 col-sm-2">{:__('MDL号')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mdl" class="form-control" name="row[mdl]" type="text" value="{$row.mdl}">
         </div>
     </div>
     <div class="form-group">
@@ -84,6 +109,12 @@
         <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
         <div class="col-xs-12 col-sm-8">
             {:build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status'])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('是否危险')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[state]', ['0'=>__('否'), '1'=>__('是')], $row['state'])}
         </div>
     </div>
     <div class="form-group layer-footer">

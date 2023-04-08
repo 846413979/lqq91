@@ -55,7 +55,7 @@ class Category extends Model
 
     public function getFlagList()
     {
-        return ['hot' => __('Hot'), 'index' => __('Index'), 'recommend' => __('Recommend')];
+        return ['reagent' => __('试剂'), 'instrument' => __('仪器')];
     }
 
     public function getFlagTextAttr($value, $data)
