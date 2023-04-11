@@ -108,20 +108,16 @@ class Cart extends Controller
     /**
      * 更新商品数量
      * @param int $id 购物车id
-     * @param int $user_id 用户id
      * @param int $op 操作：(OpAdd:+;OpMinus:-)
      * @param int $num 商品数量，如果有值，忽略操作，直接更新购物车商品数量
      */
-    public function updateGoodsNum($id, $user_id, $op, $num = 0)
+    public function updateGoodsNum($id, $op, $num = 0)
     {
         // 查询当前购物车商品数量
         $cart_data = $this->cart->where("id", $id)->field("user_id,goods_num")->find();
         if (empty($cart_data)) {
             $this->setError("商品不存在");
             return false;
-        }
-        if ($cart_data["user_id"] != $user_id) {
-            $this->error("参数错误");
         }
         $current_num = $cart_data['goods_num'];
         if ($num != 0) {
@@ -160,12 +156,11 @@ class Cart extends Controller
 
     /**
      * 删除购物车商品
-     * @param string $goods_ids 商品id，多个用逗号分割
+     * @param string $ids 购物车id，多个用逗号分割
      */
-    public function deleteCart($goods_ids, $user_id)
+    public function deleteCart($ids)
     {
-        $ids_arr = explode(",", $goods_ids);
-        $res = $this->cart->destroy(["goods_id" => ["in", $ids_arr], "user_id" => $user_id]);
+        $res = $this->cart->destroy($ids);
         if (empty($res)) {
             $this->setError("write mysql error");
             return false;
@@ -183,6 +178,21 @@ class Cart extends Controller
         if (empty($res)) {
             $this->setError("write mysql error");
             return false;
+        }
+        return true;
+    }
+
+    /**
+     * 判断是否本人购物车
+     * @param $ids
+     * @param $user_id
+     **/
+    public function checkCart($ids, $user_id){
+        $cart_user_ids = $this->where("id","in",$ids)->column("user_id");
+        foreach ($cart_user_ids as $cart_user_id){
+            if($cart_user_id!=$user_id){
+                return false;
+            }
         }
         return true;
     }

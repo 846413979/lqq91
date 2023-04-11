@@ -84,7 +84,11 @@ class Cart extends Api
             $this->error("操作类型错误");
         }
         $user_id = 2;
-        $res = $this->cartLibrary->updateGoodsNum($param["id"], $user_id, $op, !empty($param["num"]) ? $param["num"] : 0);
+        $checkCart = $this->cartLibrary->checkCart($param["id"],$user_id);
+        if(!$checkCart){
+            $this->error("不是本人购物车，不可操作");
+        }
+        $res = $this->cartLibrary->updateGoodsNum($param["id"], $op, !empty($param["num"]) ? $param["num"] : 0);
         if ($res) {
             $this->success("更新成功");
         } else {
@@ -95,7 +99,7 @@ class Cart extends Api
 
     /**
      * 删除购物车商品
-     * @param string $ids 商品id，多个用逗号分割
+     * @param string $ids 购物车id，多个用逗号分割
      **/
     public function deleteCart()
     {
@@ -104,7 +108,11 @@ class Cart extends Api
             $this->error("参数错误");
         }
         $user_id = 2;
-        $res = $this->cartLibrary->deleteCart($ids, $user_id);
+        $checkCart = $this->cartLibrary->checkCart($ids,$user_id);
+        if(!$checkCart){
+            $this->error("不是本人购物车，不可操作");
+        }
+        $res = $this->cartLibrary->deleteCart($ids);
         if ($res) {
             $this->success("删除成功");
         } else {
