@@ -4,6 +4,7 @@ namespace app\api\controller;
 
 use app\common\controller\Api;
 use app\common\library\Cart as CartLibrary;
+use app\common\enum\Cart as CartEnum;
 
 /**
  * 购物车接口
@@ -79,7 +80,7 @@ class Cart extends Api
             $this->error("参数错误");
         }
         $op = intval($param["op"]);
-        if (empty($op) || ($op != cartLibrary::OpAdd && $op != cartLibrary::OpMinus)) {
+        if (empty($op) || ($op != CartEnum::OpAdd && $op != CartEnum::OpMinus)) {
             $this->error("操作类型错误");
         }
         $user_id = 2;

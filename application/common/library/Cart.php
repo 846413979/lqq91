@@ -4,6 +4,7 @@ namespace app\common\library;
 
 use app\common\model\Cart as CartModel;
 use app\common\model\Goods;
+use app\common\enum\Cart as CartEnum;
 use think\Controller;
 
 class Cart extends Controller
@@ -17,8 +18,7 @@ class Cart extends Controller
     protected $cart;
 
     protected static $instance;
-    const OpAdd = 1;
-    const OpMinus = 2;
+
 
 
     public function __construct()
@@ -134,7 +134,7 @@ class Cart extends Controller
             return true;
         }
 
-        if ($current_num == 1 && $op == self::OpMinus) {
+        if ($current_num == 1 && $op == CartEnum::OpMinus) {
             // 当前购物车商品数量是0，并且操作为减，删除
             $res = $this->cart->destroy($id);
             if (empty($res)) {
@@ -144,7 +144,7 @@ class Cart extends Controller
             return true;
         }
 
-        if ($op == self::OpAdd) {
+        if ($op == CartEnum::OpAdd) {
             $data = array("goods_num" => $current_num + 1);
         } else {
             $data = array("goods_num" => $current_num - 1);
