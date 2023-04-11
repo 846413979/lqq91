@@ -28,6 +28,10 @@ class Category extends Model
         });
     }
 
+    public function goods(){
+        return $this->hasMany("goods");
+    }
+
     public function setFlagAttr($value, $data)
     {
         return is_array($value) ? implode(',', $value) : $value;

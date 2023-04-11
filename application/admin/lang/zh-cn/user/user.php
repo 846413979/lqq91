@@ -4,7 +4,7 @@ return [
     'Id'             => 'ID',
     'Group_id'       => '组别ID',
     'Username'       => '用户名',
-    'Nickname'       => '昵称',
+    'Nickname'       => '真实姓名',
     'Password'       => '密码',
     'Salt'           => '密码盐',
     'Email'          => '电子邮箱',

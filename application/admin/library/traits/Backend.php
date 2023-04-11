@@ -61,6 +61,7 @@ trait Backend
             ->where($where)
             ->order($sort, $order)
             ->paginate($limit);
+
         $result = ['total' => $list->total(), 'rows' => $list->items()];
         return json($result);
     }

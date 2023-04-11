@@ -1,0 +1,53 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-money" data-rule="required" class="form-control" step="0.01" name="row[money]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Presented_money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-presented_money" data-rule="required" class="form-control" step="0.01" name="row[presented_money]" type="number">
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <label class="control-label col-xs-12 col-sm-2">{:__('请选择优惠券')}:</label>
+        <div class="col-xs-12   col-sm-8">
+            <table class="table fieldlist" data-template="eventtpl" data-name="row[event]" id="second-table">
+                <tr>
+                    <td>{:__('数量')}</td>
+                    <td>{:__('优惠券')}</td>
+                    <td width="100"></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> {:__('Append')}</a></td>
+                </tr>
+            </table>
+
+            <!--请注意实际开发中textarea应该添加个hidden进行隐藏-->
+            <textarea name="row[event]" class="form-control hide" cols="30" rows="5"></textarea>
+            <script id="eventtpl" type="text/html">
+                <tr class="form-inline">
+                    <td><input type="text" name="<%=name%>[<%=index%>][number]" class="form-control" style="width:120px" placeholder="数量"/></td>
+                    <td><input type="text" name="<%=name%>[<%=index%>][id]" class="form-control selectpage" data-source="coupon/index" data-field="coupon_name" placeholder="品牌"/></td>
+                    <td>
+                        <!--下面的两个按钮务必保留-->
+                        <span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span>
+                        <span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span>
+                    </td>
+                </tr>
+            </script>
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

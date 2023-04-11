@@ -3,6 +3,8 @@
 namespace app\admin\controller;
 
 use app\common\controller\Backend;
+use app\common\library\Auth;
+use fast\Tree;
 use think\Db;
 
 /**
@@ -61,6 +63,87 @@ class Goods extends Backend
         }
 
         return $this->view->fetch();
+    }
+
+
+    public function edit($ids = null)
+    {
+        $row = $this->model->get($ids);
+        if (!$row) {
+            $this->error(__('No Results were found'));
+        }
+        $adminIds = $this->getDataLimitAdminIds();
+        if (is_array($adminIds)) {
+            if (!in_array($row[$this->dataLimitField], $adminIds)) {
+                $this->error(__('You have no permission'));
+            }
+        }
+        if ($this->request->isPost()) {
+            $this->token();
+            $params = $this->request->post("row/a");
+
+            if ($params) {
+                $params = $this->preExcludeFields($params);
+
+                $result = $row->allowField(true)->save($params);
+                $this->cart($params,$ids);
+                if ($result !== false) {
+                    $this->success();
+                } else {
+                    $this->error($row->getError());
+                }
+            }
+            $this->error(__('Parameter %s can not be empty', ''));
+        }
+        $this->view->assign("row", $row);
+        return $this->view->fetch();
+    }
+
+    //购物车价格改变
+    public function cart($params,$id)
+    {
+        $data = Db::name('cart')->where(['goods_id'=>$id])->select();
+        if(!empty($data)){
+            foreach ($data as $v){
+                $brand_name = Db::name('brand')->where('id',$params['brand_id'])->value('name');
+                $brand_discount = Db::name('brand_discount')->where(['user_id'=>$v['user_id'],'brand_id'=>$params['brand_id']])->find();
+                if($brand_discount){
+                    $discount=$brand_discount['discount'];
+                    $goods_price =  sprintf("%.2f",($discount/100)*$params['price']*$v['goods_num']);
+                }else{
+                    $discount=0;
+                    $goods_price =  sprintf("%.2f",$params['price']*$v['goods_num']);
+                }
+
+                Db::name('cart')->where('id',$v['id'])
+                    ->update([
+                        'brand_id'=>$params['brand_id'],
+                        'brand_name'=>$brand_name,
+                        'goods_original_price'=>$params['price'],
+                        'goods_price'=>$goods_price,
+                        'goods_name'=>$params['name'],
+                        'goods_no'=>$params['sku'],
+                        'user_brand_discount'=>$discount,
+                        'goods_pack'=>$params['pack'],
+                        'goods_stock'=>$params['stock'],
+                    ]);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 删除
+     */
+    public function del($ids = "")
+    {
+        if (!$this->request->isPost()) {
+            $this->error(__("Invalid parameters"));
+        }
+        $ids = $ids ? $ids : $this->request->post("ids");
+        $this->model->destroy($ids);
+        Db::name('cart')->where('goods_id','in',$ids)->update(['goods_status'=>0]);
+        $this->success();
     }
 
 }

@@ -1,4 +1,4 @@
-define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefined, Backend, Table, Form) {
+define(['jquery', 'bootstrap', 'backend', 'table', 'form','selectpage'], function ($, undefined, Backend, Table, Form,selectPage) {
 
     var Controller = {
         index: function () {
@@ -24,6 +24,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     $(this).css("background-image", "url('" + Fast.api.cdnurl(data.url) + "')");
                 })
             });
+
+
             Form.api.bindevent($("form[role=form]"), function (data, ret) {
                 Layer.alert(data.data);
             });
