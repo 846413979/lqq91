@@ -1,0 +1,411 @@
+.touu .nav {
+    width: 100%;
+    border-bottom: 2px solid #006ecd;
+    background-color: #fff;
+    padding-top: 30px;
+}
+
+.touu .nav .con {
+    cursor: pointer;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.touu .nav .con .top {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.touu .nav .con .top .left {
+    width: 288px;
+    vertical-align: middle;
+}
+
+.touu .nav .con .top .left .title {
+    font-size: 24px;
+    font-family: Microsoft YaHei-Bold, Microsoft YaHei;
+    font-weight: bold;
+    color: #006ecd;
+}
+
+.touu .nav .con .top .left .jianjie {
+    font-size: 14px;
+    font-family: Tensentype BoDangXingKaiJ-Regular, Tensentype BoDangXingKaiJ;
+    font-weight: 400;
+    color: #666666;
+}
+
+.touu .nav .con .top .right {
+    vertical-align: middle;
+    margin-top: 13px;
+}
+
+.touu .nav .con .top .right .kuang {
+    display: inline-block;
+    vertical-align: top;
+    width: 577px;
+    height: 32px;
+    border: 1px solid #006ecd;
+    padding-left: 12px;
+    line-height: 32px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.touu .nav .con .top .right .kuang img {
+    width: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    margin-top: -5px;
+}
+
+.touu .nav .con .top .right .kuang input {
+    display: inline-block;
+    vertical-align: middle;
+    border: none;
+    width: 80%;
+    margin-top: -5px;
+    height: 25px;
+    outline: none;
+}
+
+.touu .nav .con .top .right .kuang span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 84px;
+    background: #006ecd;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    right: 0;
+}
+
+.touu .nav .con .top .right .car {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 40px;
+    width: 190px;
+    height: 38px;
+    border: 1px solid #e5e5e5;
+    margin-top: -3px;
+    padding-left: 16px;
+}
+
+.touu .nav .con .top .right .car img {
+    width: 18px;
+    margin-top: 10px;
+    margin-right: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.touu .nav .con .top .right .car span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 8px;
+}
+
+.touu .nav .con .top .right .car .num {
+    margin-left: 12px;
+    width: 17px;
+    height: 14px;
+    background: #006ecd;
+    border-radius: 5px 6px 6px 0px;
+    color: #fff;
+    text-align: center;
+    line-height: 14px;
+    font-size: 12px;
+    font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+    font-weight: 400;
+}
+
+.touu .nav .con .dibu {
+    height: 40px;
+}
+
+.touu .nav .con .dibu .fenlei {
+    width: 220px;
+    height: 40px;
+    background: #006ecd;
+    display: inline-block;
+    color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.touu .nav .con .dibu .fenlei img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+.touu .nav .con .dibu .fenlei span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+
+.touu .nav .con .dibu .daohang {
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    list-style: none;
+    margin-left: 11px;
+    margin-top: -15px;
+}
+
+.touu .nav .con .dibu .daohang li {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 11px;
+}
+
+.touu .nav .con .dibu .daohang .lan {
+    background: #006ecd;
+    border-radius: 4px 4px 4px 4px;
+    color: #fff;
+}
+
+.beijing {
+    height: 700px;
+    background-image: url(../../assets/my/beijing.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.beijing .nav {
+    width: 536px;
+    height: 536px;
+    background-color: #fff;
+    box-shadow: -14px 20px 51px 1px rgba(54, 95, 136, 0.25);
+    border-radius: 10px 10px 10px 10px;
+    position: absolute;
+    top: 82px;
+    right: 300px;
+    padding-top: 54px;
+    padding-left: 42px;
+    padding-bottom: 50px;
+    padding-right: 42px;
+    box-sizing: border-box;
+}
+
+.beijing .nav .top span {
+    font-size: 20px;
+    font-family: SourceHanSansCN-Medium-, SourceHanSansCN-Medium;
+    font-weight: normal;
+    color: #333333;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+.beijing .nav .top .lan {
+    font-size: 28px;
+    font-family: SourceHanSansCN-Medium-, SourceHanSansCN-Medium;
+    font-weight: normal;
+    color: #006ecd;
+}
+
+.beijing .nav .hao {
+    margin-top: 20px;
+}
+
+.beijing .nav .hao>div {
+    margin-top: 30px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dcdcdc;
+    position: relative;
+}
+
+.beijing .nav .hao>div img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 36px;
+}
+
+.beijing .nav .hao>div input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    outline: none;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+}
+
+.beijing .nav .hao div .luanma {
+    display: inline-block;
+    vertical-align: middle;
+    width: 126px;
+    height: 46px;
+    background: #006ecd;
+    border-radius: 10px 10px 10px 10px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.beijing .nav .hao div .luanma input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #666666;
+    text-align: center;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.beijing .nav .ma {
+    margin-top: 20px;
+    display: none;
+}
+
+.beijing .nav .ma>div {
+    margin-top: 30px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dcdcdc;
+    position: relative;
+}
+
+.beijing .nav .ma>div img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 36px;
+}
+
+.beijing .nav .ma>div input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    outline: none;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+}
+
+.beijing .nav .ma>div .getma {
+    display: inline-block;
+    vertical-align: middle;
+    width: 126px;
+    height: 46px;
+    background: #006ecd;
+    border-radius: 10px 10px 10px 10px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    text-align: center;
+    line-height: 46px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.beijing .nav .zhuce {
+    width: 100%;
+    text-align: end;
+    margin-top: 16px;
+    font-size: 16px;
+    font-family: PingFang SC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #006ecd;
+    cursor: pointer;
+}
+
+.beijing .nav .deng {
+    cursor: pointer;
+    margin-top: 40px;
+    width: 452px;
+    height: 58px;
+    background: #006ecd;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 28px;
+    font-family: Source Han Sans CN-Bold, Source Han Sans CN;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    line-height: 58px;
+}
+
+.dii .con .top {
+    padding-top: 48px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    background: #e0e0e0;
+}
+
+.dii .con .top .nav {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dii .con .top .nav .nei span {
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #333333;
+}
+
+.dii .con .top .nav .nei ul {
+    margin-top: 10px;
+    list-style: none;
+}
+
+.dii .con .top .nav .nei ul li {
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #666666;
+    margin-left: -38px;
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+
+.dii .con .top .nav .nei ul li:hover {
+    color: #006ecd;
+}
+
+.dii .con .dibu {
+    width: 1050px;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.dii .con .dibu h4 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #666666;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.dii .con .dibu h4 span:hover {
+    color: #006ecd;
+}
+
+.dii .con .dibu h3 {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-family: Source Han Sans CN-Bold, Source Han Sans CN;
+    font-weight: bold;
+    color: #f50000;
+    cursor: pointer;
+    text-align: center;
+}

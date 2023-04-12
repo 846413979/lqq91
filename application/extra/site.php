@@ -33,6 +33,7 @@ return array (
   'attachmentcategory' => 
   array (
     'banner' => '首页轮播',
+    'bannertwo' => '首页轮播2',
   ),
   'divide_scale' => '1',
   'score_scale' => '1',

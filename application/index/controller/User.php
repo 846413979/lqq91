@@ -9,6 +9,7 @@ use app\common\library\Sms;
 use app\common\model\Attachment;
 use think\Config;
 use think\Cookie;
+use think\Db;
 use think\Hook;
 use think\Session;
 use think\Validate;
@@ -18,8 +19,8 @@ use think\Validate;
  */
 class User extends Frontend
 {
-    protected $layout = 'default';
-    protected $noNeedLogin = ['login', 'register', 'third'];
+//    protected $layout = 'default';
+    protected $noNeedLogin = ['login', 'register', 'third','user_check'];
     protected $noNeedRight = ['*'];
 
     public function _initialize()
@@ -60,6 +61,17 @@ class User extends Frontend
         return $this->view->fetch();
     }
 
+    public function user_check()
+    {
+        $param = $this->request->param();
+        $res = \app\common\model\User::get(['username' => $param['username']]);
+        if(!empty($res)){
+            $this->error('');
+        }else{
+            $this->success('');
+        }
+    }
+
     /**
      * 注册会员
      */
@@ -70,57 +82,54 @@ class User extends Frontend
             $this->success(__('You\'ve logged in, do not login again'), $url ? $url : url('user/index'));
         }
         if ($this->request->isPost()) {
-            $username = $this->request->post('username');
-            $password = $this->request->post('password');
-            $email = $this->request->post('email');
-            $mobile = $this->request->post('mobile', '');
-            $captcha = $this->request->post('captcha');
-            $token = $this->request->post('__token__');
+            $param = $this->request->param();
+            $data = $param['data'];
+
+//            $username = $this->request->post('username');
+//            $password = $this->request->post('password');
+//            $email = $this->request->post('email');
+//            $mobile = $this->request->post('mobile', '');
+//            $captcha = $this->request->post('captcha');
+//            $token = $this->request->post('__token__');
             $rule = [
-                'username'  => 'require|length:3,30',
-                'password'  => 'require|length:6,30',
+                'username'  => 'require|length:3,30|unique:user',
+                'password'  => 'require|length:6,30|confirm',
+                'password_confirm'=>'require|confirm:password',
                 'email'     => 'require|email',
-                'mobile'    => 'regex:/^1\d{10}$/',
+                'mobile'    => 'regex:/^1\d{10}$/|unique:mobile',
                 '__token__' => 'require|token',
             ];
 
             $msg = [
-                'username.require' => 'Username can not be empty',
-                'username.length'  => 'Username must be 3 to 30 characters',
-                'password.require' => 'Password can not be empty',
-                'password.length'  => 'Password must be 6 to 30 characters',
-                'email'            => 'Email is incorrect',
-                'mobile'           => 'Mobile is incorrect',
+                'username.require' => '用户名不能为空',
+                'username.length'  => '用户名必须在3到30之间',
+                'username.unique'  => '用户名已存在',
+                'password.require' => '密码不能为空',
+                'password.length'  => '密码必须6到30之间',
+                'password.confirm'  => '两次密码不一致',
+                'password_confirm.length'  => '确认密码不能为空',
+                'password_confirm.confirm' => '两次密码不一致',
+                'email.confirm'   => '邮箱不能为空',
+                'email.email'     => '邮箱格式不正确',
+                'mobile.length'   => '手机号不能为空',
+                'mobile.unique'   => '手机号已存在',
             ];
-            $data = [
-                'username'  => $username,
-                'password'  => $password,
-                'email'     => $email,
-                'mobile'    => $mobile,
-                '__token__' => $token,
-            ];
-            //验证码
-            $captchaResult = true;
-            $captchaType = config("fastadmin.user_register_captcha");
-            if ($captchaType) {
-                if ($captchaType == 'mobile') {
-                    $captchaResult = Sms::check($mobile, $captcha, 'register');
-                } elseif ($captchaType == 'email') {
-                    $captchaResult = Ems::check($email, $captcha, 'register');
-                } elseif ($captchaType == 'wechat') {
-                    $captchaResult = WechatCaptcha::check($captcha, 'register');
-                } elseif ($captchaType == 'text') {
-                    $captchaResult = \think\Validate::is($captcha, 'captcha');
-                }
-            }
-            if (!$captchaResult) {
-                $this->error(__('Captcha is incorrect'));
-            }
+//            $data = [
+//                'username'  => $username,
+//                'password'  => $password,
+//                'email'     => $email,
+//                'mobile'    => $mobile,
+//                '__token__' => $token,
+//            ];
+
+
             $validate = new Validate($rule, $msg);
             $result = $validate->check($data);
+
             if (!$result) {
                 $this->error(__($validate->getError()), null, ['token' => $this->request->token()]);
             }
+            halt(1);
             if ($this->auth->register($username, $password, $email, $mobile)) {
                 $this->success(__('Sign up successful'), $url ? $url : url('user/index'));
             } else {
@@ -136,6 +145,10 @@ class User extends Frontend
         $this->view->assign('captchaType', config('fastadmin.user_register_captcha'));
         $this->view->assign('url', $url);
         $this->view->assign('title', __('Register'));
+        //专属客服
+        $uid = Db::name('auth_group_access')->where('group_id',2)->column('uid');
+        $admin = Db::name('admin')->where('id','in',$uid)->field('id,nickname')->select();
+        $this->view->assign('admin', $admin);
         return $this->view->fetch();
     }
 
@@ -149,6 +162,7 @@ class User extends Frontend
             $this->success(__('You\'ve logged in, do not login again'), $url ? $url : url('user/index'));
         }
         if ($this->request->isPost()) {
+
             $account = $this->request->post('account');
             $password = $this->request->post('password');
             $keeplogin = (int)$this->request->post('keeplogin');

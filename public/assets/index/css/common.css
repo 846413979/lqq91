@@ -1,0 +1,200 @@
+
+.rightt {
+    /* height: 235px; */
+    list-style: none;
+    position: fixed;
+    right: 30px;
+    bottom: 200px;
+}
+
+.rightt li {
+    width: 55px;
+    height: 55px;
+    background: #bfbfbf;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #fefeff;
+    /* padding-left: 14px;
+padding-top: 5px; */
+    box-sizing: border-box;
+    cursor: pointer;
+    list-style: none;
+}
+
+.rightt li:hover {
+    background: #006ecd;
+}
+
+.rightt li img {
+    width: 27.23px;
+    height: 25.96px;
+    margin-top: 5px;
+    margin-left: 14px;
+}
+
+.rightt li span {
+    display: block;
+    text-align: center;
+}
+
+.rightt .qq {
+    width: 322px;
+    height: 184px;
+    background-image: url(/assets/index/img/qkuang.png);
+    position: absolute;
+    right: 56px;
+    top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-right: 25px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.rightt .qq::after {
+    display: "block";
+    content: "";
+    width: 30%;
+}
+
+.rightt .qq .list {
+    width: 92px;
+    height: 70px;
+    border: 1px solid #ededed;
+}
+
+.rightt .qq .list .title {
+    width: 82px;
+    height: 20px;
+    background: #ade4fd;
+    box-shadow: inset 0px 0px 10px 1px rgba(255, 255, 255, 0.16);
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid #6abeee;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.rightt .qq .list .title img {
+    width: 10px;
+    height: 11.88px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+.rightt .qq .list .title span {
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #006ecd;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.rightt .qq .list .name {
+    display: block;
+    text-align: center;
+    height: 12px;
+    /* width: 100%; */
+    margin: 0 auto;
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #006ecd;
+    margin-top: 8px;
+}
+
+.rightt .qq .list .num {
+    display: block;
+    text-align: center;
+    height: 12px;
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular-, SourceHanSansCN-Regular;
+    font-weight: normal;
+    color: #333333;
+    margin-top: 8px;
+}
+.touu .nav .con .dibu .fenlei{
+    position: relative;
+}
+.touu .nav .con .dibu .fenlei:hover .navlist{
+    display: block;
+}
+
+.touu .nav .con .dibu .fenlei .navlist {
+    position: absolute;
+    top: 40px;
+    width: 220px;
+    background-color: #fff;
+    z-index: 5;
+    max-height: 300px;
+    box-sizing: border-box;
+    border: 1px solid #006ecd;
+    display: none;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #818182;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+    position: relative;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one:hover {
+    background-color: #006ecd;
+    color: #fff;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one:hover .two {
+    display: block;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one .two {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    width: 900px;
+    height: 500px;
+    background-color: #ffffff;
+    display: none;
+    padding: 20px;
+    color: black;
+    box-sizing: border-box;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one .two .classification {
+    text-align: start;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one .two .classification .zuo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    font-size: 16px;
+    font-family: Source Han Sans CN-Bold, Source Han Sans CN;
+    font-weight: bold;
+    color: #333333;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one .two .classification .you {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.touu .nav .con .dibu .fenlei .navlist .one .two .classification .you span {
+    margin-left: 0;
+    margin-top: 0;
+}

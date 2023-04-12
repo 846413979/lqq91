@@ -64,6 +64,7 @@ class Frontend extends Controller
         // 设置当前请求的URI
         $this->auth->setRequestUri($path);
         // 检测是否需要验证登录
+
         if (!$this->auth->match($this->noNeedLogin)) {
             //初始化
             $this->auth->init($token);

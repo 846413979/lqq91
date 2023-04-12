@@ -1,34 +1,411 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{$site.name|htmlentities}</title>
-    <link rel="shortcut icon" href="__CDN__/assets/img/favicon.ico"/>
-    <link href="__CDN__/assets/css/index.css" rel="stylesheet">
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="__CDN__/assets/index/css/common.css">
+    <link rel="stylesheet" href="__CDN__/assets/index/css/layui.css">
+    <link rel="stylesheet" href="__CDN__/assets/index/css/index.css">
 </head>
+<style>
+
+</style>
 
 <body>
+    <!-- 头部 -->
+    {include file="common/indexnav" /}
 
-<div id="mainbody">
-    <div class="container">
-        <div class="text-center">
-            <h1>{$site.name|htmlentities}</h1>
-            <!--<a href="{:url('index/user/index', '', false, true)}">{:__('Member center')}</a>-->
+    <div class="zhongg">
+        <div class="top">
+            <!-- 左侧 -->
+            <div class="left">
+
+                <div class="da">
+                    <div class="list">
+                        <div class="title">催化剂・砌块化合物</div>
+                        <div class="fenlei">
+                            <span>催化剂</span><span>催化剂</span><span>催化剂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="da">
+                    <div class="list">
+                        <div class="title">催化剂・砌块化合物</div>
+                        <div class="fenlei">
+                            <span>催化剂</span><span>催化剂</span><span>催化剂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="da">
+                    <div class="list">
+                        <div class="title">催化剂・砌块化合物</div>
+                        <div class="fenlei">
+                            <span>催化剂</span><span>催化剂</span><span>催化剂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="da">
+                    <div class="list">
+                        <div class="title">催化剂・砌块化合物</div>
+                        <div class="fenlei">
+                            <span>催化剂</span><span>催化剂</span><span>催化剂</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 中间轮播 -->
+            <div class="mid">
+
+
+                <div class="layui-carousel" id="test1">
+                    <div carousel-item>
+                        <div><img src="__CDN__/assets/index/img/banner.png" /></div>
+                        <div><img src="__CDN__/assets/index/img/banner.png" /></div>
+                        <div><img src="__CDN__/assets/index/img/banner.png" /></div>
+                        <div><img src="__CDN__/assets/index/img/banner.png" /></div>
+                        <div><img src="__CDN__/assets/index/img/banner.png" /></div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- 右侧登陆 -->
+            <div class="right">
+                <div class="user">
+                    <img src="__CDN__/assets/index/img/user.png" alt="" />
+                    <div class="you">
+                        <span class="da">Hi，上午好</span>
+                        <span>欢迎来到采购平台</span>
+                    </div>
+                </div>
+                <!--登录 -->
+                <div class="login"><a href="{:url('login/login')}"> 用户登录</a></div>
+                <!-- 用户注册 -->
+                <div class="zhuce" @click="this.$router.push({ path: '/login/register'})">用户注册</div>
+                <!-- 公告 -->
+                <div class="lists">
+                    <div class="title">公告通知</div>
+                    <div class="con">
+                        <div class="list" v-for="item in 10" :key="item">
+                            <span>2023年春节放假时间安排</span><span>03-24</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商品分类 -->
+            <div class="fenlei1">
+                <div class="nav">
+                    <div class="zuo" @click="this.$router.push({path: '/shopping/shopping1'})">催化剂</div>
+                    <div class="you">
+                        <span @click="this.$router.push({path: '/shopping/shopping'})">| 贵金属催化剂</span>
+                        <span>| 相转移催化剂</span>
+                        <span>| 膦钯类催化剂及配</span>
+                        <span>| 体金属催化剂</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 轮播 -->
+        <div class="midbanner">
+
+            <div class="layui-carousel" id="test2">
+                <div carousel-item>
+                    <div><img src="__CDN__/assets/index/img/banner1.png" /></div>
+                    <div><img src="__CDN__/assets/index/img/banner1.png" /></div>
+                    <div><img src="__CDN__/assets/index/img/banner1.png" /></div>
+                    <div><img src="__CDN__/assets/index/img/banner1.png" /></div>
+                    <div><img src="__CDN__/assets/index/img/banner1.png" /></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司新闻 -->
+        <div class="news">
+            <div class="nav">
+                <span class="hei">公司新闻</span>
+                <span>优惠活动</span>
+                <span>化学知识</span>
+                <span>生活化学</span>
+                <span>技术文章</span>
+                <span>行业资讯</span>
+                <div class="more">
+                    more <img src="__CDN__/assets/index/img/more.png" alt="" />
+                </div>
+            </div>
+            <div class="con xianshi" id="xinwen">
+                <div class="tu">
+                    <img src="__CDN__/assets/index/img/alading.png" alt="" />
+                    <div class="zi">
+                        <span class="liang">阿拉丁试剂包装换新颜</span>
+                        <span>2023-03-23 | 宣传部</span>
+                    </div>
+                </div>
+                <div class="lists">
+                    <div class="list">
+                        <div class="jieshao">
+                            <div class="title">
+                                2023年春节放假时间安排20 23年春节放假时间安排
+                            </div>
+                            <span>2023-03-23 | 宣传部</span>
+                        </div>
+                        <img src="__CDN__/assets/index/img/alading.png" alt="" />
+                    </div>
+                    <div class="list">
+                        <div class="jieshao">
+                            <div class="title">
+                                2023年春节放假时间安排20 23年春节放假时间安排
+                            </div>
+                            <span>2023-03-23 | 宣传部</span>
+                        </div>
+                        <img src="__CDN__/assets/index/img/alading.png" alt="" />
+                    </div>
+                    <div class="list">
+                        <div class="jieshao">
+                            <div class="title">
+                                2023年春节放假时间安排20 23年春节放假时间安排
+                            </div>
+                            <span>2023-03-23 | 宣传部</span>
+                        </div>
+                        <img src="__CDN__/assets/index/img/alading.png" alt="" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="con" id="huodong">
+
+            </div>
+            <div class="con" id="zhishi">
+
+            </div>
+            <div class="con" id="huaxue">
+
+            </div>
+            <div class="con" id="wenzhang">
+
+            </div>
+            <div class="con" id="zixun">
+
+            </div>
+
+
+
+        </div>
+
+        <!-- 品牌中心 -->
+        <div class="pinpai">
+            <div class="con">
+                <div class="title">
+                    <img src="__CDN__/assets/index/img/brand.png" alt="" />
+                </div>
+                <div class="lists">
+                    <div class="layui-carousel" id="test3">
+                        <div carousel-item>
+                            <div >
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                            </div>
+                            <div>
+                                <img src="__CDN__/assets/index/img/sie.png" />
+                            </div>
+                            <div><img src="__CDN__/assets/index/img/sie.png" /></div>
+                            <div><img src="__CDN__/assets/index/img/sie.png" /></div>
+                            <div><img src="__CDN__/assets/index/img/sie.png" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品中心 -->
+        <div class="chanpin">
+            <div class="title">
+                <img src="__CDN__/assets/index/img/chanpinzhongxin.png" alt="" />
+            </div>
+            <div class="imgs">
+                <swiper :slides-per-view="1" :space-between="50">
+                    <swiper-slide v-for="item in 16" :key="item"><img src="__CDN__/assets/index/img/chanpin.png" alt="" />
+                    </swiper-slide>
+                </swiper>
+            </div>
+        </div>
+
+        <!-- 产品推荐 -->
+        <div class="tuijian">
+            <div class="top">产品推荐</div>
+            <div class="con">
+                <div class="left">
+                    <div class="title">α-硫代甘油</div>
+                    <div class="xiao">96-27-5 MDL</div>
+                    <div class="da">MFCD00004879</div>
+                    <div class="tu">
+                        <img src="__CDN__/assets/index/img/huahewu.png" alt="" />
+                    </div>
+                    <div class="btn">查看详情</div>
+                </div>
+                <div class="right">
+                    <div class="list" v-for="item in 8" :key="item">
+                        <div class="tu">
+                            <img src="__CDN__/assets/index/img/huahewu.png" alt="" />
+                        </div>
+                        <div class="jieshao">α-硫代甘油 CasNo:96-27-5 MDL:MFCD00004879</div>
+                        <div class="btn">查看详情</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 促销产品 -->
+        <div class="cuxiao">
+            <div class="top">产品推荐</div>
+            <div class="con">
+                <div class="left">
+                    <div class="title">α-硫代甘油</div>
+                    <div class="xiao">96-27-5 MDL</div>
+                    <div class="da">MFCD00004879</div>
+                    <div class="tu">
+                        <img src="__CDN__/assets/index/img/huahewu.png" alt="" />
+                    </div>
+                    <div class="btn">查看详情</div>
+                </div>
+                <div class="right">
+                    <div class="list" v-for="item in 8" :key="item">
+                        <div class="tu">
+                            <img src="__CDN__/assets/index/img/huahewu.png" alt="" />
+                        </div>
+                        <div class="jieshao">α-硫代甘油 CasNo:96-27-5 MDL:MFCD00004879</div>
+                        <div class="btn">查看详情</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="footer">
-    <div class="container">
-        <p>Copyright @ {$site.name|htmlentities} {:date('Y',time())} 版权所有 <a href="https://beian.miit.gov.cn" target="_blank">{$site.beian|htmlentities}</a></p>
-    </div>
-</div>
+    {include file="common/right" /}
+
+    {include file="common/footer" /}
 
 </body>
+
+<script src="__CDN__/assets/index/js/jquery-latest.js"></script>
+<!-- 引入 layui.js -->
+<script src="__CDN__/assets/index/js/layui.js"></script>
+<script>
+    $('.zhongg .top .left .da').mouseenter(function() {
+        $('.zhongg .top .left .da').removeClass('bai')
+        $(this).addClass('bai')
+        $('.zhongg .top .left .da').children('.list').removeClass('bai')
+        $(this).children('.list').addClass('bai')
+
+        $('.zhongg .top .mid')[0].style.display = 'none'
+        $('.zhongg .top .right')[0].style.display = 'none'
+        $('.zhongg .top .fenlei1')[0].style.display = 'inline-block'
+
+    });
+
+
+    $('#outqq').mouseenter(() => {
+        $('.rightt .qq')[0].style.display = 'block'
+    });
+    $('#outqq').mouseout(() => {
+        $('.rightt .qq')[0].style.display = 'none'
+    });
+
+    $('.zhongg .top .left').mouseleave(function() {
+        $('.zhongg .top .left .da').removeClass('bai');
+        $('.zhongg .top .left .da').children('.list').removeClass('bai');
+        setTimeout(() => {
+            $('.zhongg .top .mid')[0].style.display = 'inline-block'
+            $('.zhongg .top .right')[0].style.display = 'inline-block'
+            $('.zhongg .top .fenlei1')[0].style.display = 'none'
+        }, 2000)
+    });
+    layui.use('carousel', function() {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1',
+            width: '100%', //设置容器宽度
+            height: '100%' //设置容器高度
+                // , full:'true' //是否全屏轮播,默认false
+                // , arrow: 'always' //始终显示箭头和点击按钮
+                // ,anim: 'updown' //切换动画方式，可从各个方向滚动
+        });
+    });
+    layui.use('carousel', function() {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test2',
+            width: '100%', //设置容器宽度
+            height: '100%' //设置容器高度
+                // , full:'true' //是否全屏轮播,默认false
+                // , arrow: 'always' //始终显示箭头和点击按钮
+                // ,anim: 'updown' //切换动画方式，可从各个方向滚动
+        });
+    });
+    layui.use('carousel', function() {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test3',
+            width: '100%', //设置容器宽度
+            height: '100%' //设置容器高度
+            // , full:'true' //是否全屏轮播,默认false
+            // , arrow: 'always' //始终显示箭头和点击按钮
+            // ,anim: 'updown' //切换动画方式，可从各个方向滚动
+        });
+    });
+
+    $('.touu .nav .con .dibu .fenlei').mouseenter(function() {
+        $('.touu .nav .con .dibu .navlist')[0].style.display = 'block'
+    })
+    $('.touu .nav .con .dibu .fenlei').mouseout(function() {
+        setTimeout(function() {
+            $('.touu .nav .con .dibu .navlist')[0].style.display = 'none'
+        }, 2000)
+
+    })
+
+    $('.zhongg .news .nav span').mouseenter(function() {
+        $('.zhongg .news .nav span').removeClass('hei')
+        $(this).addClass('hei')
+        $('.zhongg .news .con').removeClass('xianshi')
+        console.log($(this).context.innerHTML);
+        if ($(this).context.innerHTML == "公司新闻") {
+            $('#xinwen').addClass('xianshi')
+        }
+        if ($(this).context.innerHTML == "优惠活动") {
+            $('#huodong').addClass('xianshi')
+        }
+        if ($(this).context.innerHTML == " 化学知识") {
+            $('#zhishi').addClass('xianshi')
+        }
+        if ($(this).context.innerHTML == "生活化学") {
+            $('#huaxue').addClass('xianshi')
+        }
+        if ($(this).context.innerHTML == " 技术文章") {
+            $('#wenzhang').addClass('xianshi')
+        }
+        if ($(this).context.innerHTML == " 行业资讯") {
+            $('#zixun').addClass('xianshi')
+        }
+
+    })
+</script>
 
 </html>

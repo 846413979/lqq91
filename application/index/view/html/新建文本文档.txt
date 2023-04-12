@@ -1,0 +1,37 @@
+首页-----                index/index.html
+网站公告-----          gonggao/gonggao.html
+网站公告详情-----   gonggao/gonggaoinfo.html
+积分商城-----          pointsmall/pointsmall.html 
+合作品牌-----          brand/brand.html
+合作品牌详情-----    brand/brandinfo.html
+促销产品----            cuxiao/cuxiao.html
+化合物定制----         dingzhi/dingzhi.html
+试剂知识-----           knowledge/knowledge.html
+试剂知识详情-----     knowledge/knowledgeinfo.html
+联系我们-----            lianxi/lianxi.html
+购物车---                  shopcar/shopcar.html
+搜索--                     search/search.html
+搜索 --仪器详情        search/yiqiinfo.html
+结算--                         jiesuan/jiesuan.html
+结算扫码--                   jiesuan/jiesuaninfo.html
+
+登陆--                    login/login.html
+登陆注册--                login/register.html
+登陆忘记密码--        login/password.html
+
+
+
+
+个人中心--个人信息     center/inforrmation.html
+个人中心--交易记录     center/record.html
+个人中心--我的余额     center/yue.html
+个人中心--地址管理     center/adress.html
+个人中心--发票管理     center/fapiao.html
+个人中心--修改密码     center/changepassword.html
+个人中心--我的推广     center/tuiguang.html
+个人中心--优惠券         center/coupon.html
+个人中心--我的积分      center/integral.html
+
+个人中心--订单详情     center/components/orderinfo.html
+
+

@@ -96,7 +96,7 @@ class Cart extends Controller
             $data["goods_num"] = $num;
             $res = $this->cart->saveData($data);
         }
-        if (empty($res)) {
+        if ($res===false) {
             $this->setError("write mysql error");
             return false;
         }
@@ -123,7 +123,7 @@ class Cart extends Controller
         if ($num != 0) {
             // 传入数量，忽略操作，直接更新购物车商品数量
             $res = $this->cart->where('id', $id)->setField("goods_num", $num);
-            if (empty($res)) {
+            if ($res===false) {
                 $this->setError("write mysql error");
                 return false;
             }
@@ -133,7 +133,7 @@ class Cart extends Controller
         if ($current_num == 1 && $op == CartEnum::OpMinus) {
             // 当前购物车商品数量是0，并且操作为减，删除
             $res = $this->cart->destroy($id);
-            if (empty($res)) {
+            if ($res===false) {
                 $this->setError("write mysql error");
                 return false;
             }
@@ -147,7 +147,7 @@ class Cart extends Controller
 
         }
         $res = $this->cart->where('id', $id)->update($data);
-        if (empty($res)) {
+        if ($res===false) {
             $this->setError("write mysql error");
             return false;
         }
@@ -161,7 +161,7 @@ class Cart extends Controller
     public function deleteCart($ids)
     {
         $res = $this->cart->destroy($ids);
-        if (empty($res)) {
+        if ($res===false) {
             $this->setError("write mysql error");
             return false;
         }
@@ -175,7 +175,7 @@ class Cart extends Controller
     public function emptyCart($user_id)
     {
         $res = $this->cart->destroy(["user_id" => $user_id]);
-        if (empty($res)) {
+        if ($res===false) {
             $this->setError("write mysql error");
             return false;
         }

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="http://unpkg.com/layui@2.6.8/dist/css/layui.css">
+    <link rel="stylesheet" href="../../css/login/register.css">
+</head>
+<style>
+
+</style>
+
+<body>
+    <!-- 头部 -->
+    <div class="touu">
+        <div class="nav">
+            <div class="con">
+                <div class="top">
+                    <div class="left">
+                        <span class="title">山东优研生物科技有限公司</span>
+                        <span class="jianjie">您身边的试剂超市 | 品牌试剂一站式购买</span>
+                    </div>
+                    <div class="right">
+                        <div class="kuang">
+                            <img src="@/assets/my/sousuo.png" alt="" />
+                            <input type="text" placeholder="可输入CAS号、中文名、英文名等检索" />
+                            <span @click="gosearch">搜索</span>
+                        </div>
+                        <div class="car">
+                            <img src="@/assets/my/shopcar.png" alt="" />
+                            <span @click="this.$router.push({path: '/shopcar/shopcar'})">我的购物车</span>
+                            <span class="num">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dibu">
+                    <div class="fenlei">
+                        <img src="@/assets/my/fenlei.png" alt="" />
+                        <span>全部商品分类</span>
+                    </div>
+                    <ul class="daohang">
+                        <li class='lan'>首页</li>
+                        <li class=''>网站公告</li>
+                        <li class=''>积分商城</li>
+                        <li class=''>合作品牌</li>
+                        <li class=''>促销产品</li>
+                        <li class=''>化合物定制</li>
+                        <li class=''>试剂知识</li>
+                        <li class=''>联系我们</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="zhongg">
+        <div class="con">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                    <div class="lan">检查用户名</div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">重复密码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">工作单位</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">省市区</label>
+                    <div class="layui-input-block">
+                        <select name="city" lay-verify="required">
+                        <option value=""></option>
+                        <option value="0">北京</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                    </div>
+
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">具体地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                    <span class="yuan">(具体到省、市、区、街道)</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                    <span class="yuan">手机号将作为应急联系工具，建议填写</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机验证码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                    <div class="lan">获取验证码</div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">电子邮箱</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                    <span class="yuan">(用于接收合同)</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">我的姓名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                    <span class="yuan">为什么填写真实姓名？</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">所述课题组</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="jin">(注：填写导师或采购负责人)</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订购用途</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="自用" title="自用" checked>
+                        <input type="radio" name="sex" value="经销" title="经销">
+                    </div>
+                </div>
+
+                <div style="
+          margin-bottom: 20px;
+          margin-left: 10px;
+          font-size: 14px;
+          font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+          font-weight: 400;
+          color: #333333;
+        ">
+                    如果您希望通过网站进行产品订购，请填写发票信息
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">单位全程</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">发票类型</label>
+                    <div class="layui-input-block">
+                        <select name="city" lay-verify="required">
+                        <option value=""></option>
+                        <option value="0">北京</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                    </div>
+                    <span class="xing">*</span>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">税号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="xing">*</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">公司注册地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">注册电话</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">开户行</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">银行账户</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">专属客服</label>
+                    <div class="layui-input-block">
+                        <select name="city" lay-verify="required">
+                        <option value=""></option>
+                        <option value="0">北京</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">验证码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="luanma" @click="refreshCode">
+                        <!--验证码组件-->
+                        <input id="imgy" name="sjs" readonly placeholder="验证码">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">推荐人</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+                    </div>
+                    <span class="jin">(注：选填，可填写推荐人用户名或编号)</span>
+                </div>
+
+
+                <div style="
+          margin-bottom: 20px;
+          margin-left: 50px;
+          font-size: 14px;
+          font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+          font-weight: 400;
+          color: #333333;
+        ">
+                    <input type="checkbox"> 我已阅读并同意遵守 <span style="color: #006ecd;margin-left: 10px;">《网络服务协议》</span>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="dii">
+        <div class="con">
+            <!-- 灰色 -->
+            <div class="top">
+                <div class="nav">
+                    <div class="nei">
+                        <span>购物指南</span>
+                        <ul>
+                            <li>产品搜索功能</li>
+                            <li>积分规则</li>
+                            <li>销售条款</li>
+                            <li>注册新用户</li>
+                            <li>订购流程</li>
+                        </ul>
+                    </div>
+                    <div class="nei">
+                        <span>如何付款</span>
+                        <ul>
+                            <li>运费收取标准</li>
+                            <li>发票制度说明</li>
+                            <li>支付方式</li>
+                        </ul>
+                    </div>
+                    <div class="nei">
+                        <span>企业信息</span>
+                        <ul>
+                            <li>经营资质</li>
+                            <li>供货商授权书</li>
+                            <li>联系我们</li>
+                            <li>关于我们</li>
+                            <li>人才招聘</li>
+                        </ul>
+                    </div>
+                    <div class="nei">
+                        <span>售后服务</span>
+                        <ul>
+                            <li>发货咨询</li>
+                            <li>质检单（COA）索取</li>
+                            <li>验货须知</li>
+                            <li>如何班里退换货</li>
+                            <li>常见热点问题</li>
+                        </ul>
+                    </div>
+                    <div class="nei">
+                        <span>法律声明</span>
+                        <ul>
+                            <li>版权声明</li>
+                            <li>免责声明</li>
+                            <li>反商业贿赂声明</li>
+                            <li>网站服务协议</li>
+                            <li>一般危化品购买须知</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 白色 -->
+            <div class="dibu">
+                <h4>
+                    快速导航： <span>首页</span> | <span>网站公告</span> |
+                    <span>积分商城</span> | <span>合作品牌</span> | <span>试剂知识</span> |
+                    <span>联系我们</span>
+                </h4>
+                <h4>
+                    友情链接： <span>麦克林试剂</span> | <span>乐研化学</span> |
+                    <span>标准物质中心</span> | <span>爱研试剂</span> |
+                    <span>爱研试剂</span> | <span>chem960</span> |
+                    <span>广州化学试剂厂</span> | <span>南京试剂</span> |
+                    <span>南京试剂</span> |<span>化学加</span> | <span>九鼎化学</span> |
+                    <span>喀斯玛-腾准</span> | <span>喀斯玛-腾准</span> |
+                    <span>食品安全</span> | <span>化浪化工网</span> |
+                    <span>购买化学试剂的网站</span> | <span>医药中间体</span> |
+                    <span>阿拉丁试剂购买</span>
+                </h4>
+                <h4>友链联系QQ：2881074839</h4>
+                <h3>
+                    本网站销售的所有产品仅用于工业应用或者科学研究等非医疗目的，不可用于人类或动物的临床诊断或治疗，非药用，非食用。
+                </h3>
+                <h4>沪ICP备10200469号-3 &nbsp;&nbsp;&nbsp; 沪公网备310120100041653</h4>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<!-- 引入 layui.js -->
+<script src="http://unpkg.com/layui@2.6.8/dist/layui.js"></script>
+
+<script>
+    //Demo
+    layui.use('form', function() {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+    window.onload = function() {
+        var str = "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+        var nu = 0;
+        var im = document.getElementById("imgy");
+        sj(); //初始化
+        im.onclick = function() {
+            sj();
+        };
+
+        function sj() {
+            var s = "";
+            for (let i = 0; i < 4; i++) {
+                nu = Math.floor(Math.random() * 62);
+                s = s.concat(" ", str.charAt(nu));
+            }
+            im.value = s;
+        }
+    };
+</script>
+
+</html>

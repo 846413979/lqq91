@@ -6,6 +6,8 @@ use app\common\controller\Backend;
 use app\common\library\Auth;
 use fast\Tree;
 use think\Db;
+use think\exception\PDOException;
+use think\exception\ValidateException;
 
 /**
  * 商品管理
@@ -66,6 +68,35 @@ class Goods extends Backend
     }
 
 
+    /**
+     * 添加
+     *
+     * @return string
+     * @throws \think\Exception
+     */
+    public function add()
+    {
+        if (false === $this->request->isPost()) {
+            return $this->view->fetch();
+        }
+        $params = $this->request->post('row/a');
+        if (empty($params)) {
+            $this->error(__('Parameter %s can not be empty', ''));
+        }
+        $params = $this->preExcludeFields($params);
+
+        if(!empty($params['images'])){
+            $params['image'] = $this->image($params['images']);
+        }else{
+            $params['image'] = '';
+        }
+        $result = $this->model->allowField(true)->save($params);
+
+        if ($result === false) {
+            $this->error(__('No rows were inserted'));
+        }
+        $this->success();
+    }
     public function edit($ids = null)
     {
         $row = $this->model->get($ids);
@@ -84,7 +115,11 @@ class Goods extends Backend
 
             if ($params) {
                 $params = $this->preExcludeFields($params);
-
+                if(!empty($params['images'])){
+                    $params['image'] = $this->image($params['images']);
+                }else{
+                    $params['image'] = '';
+                }
                 $result = $row->allowField(true)->save($params);
                 $this->cart($params,$ids);
                 if ($result !== false) {
@@ -97,6 +132,11 @@ class Goods extends Backend
         }
         $this->view->assign("row", $row);
         return $this->view->fetch();
+    }
+    public function image($img)
+    {
+        $arr = explode(',',$img);
+        return $arr[0];
     }
 
     //购物车价格改变
